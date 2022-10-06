@@ -1,6 +1,6 @@
 {% set provider = "azurerm" %}
 {% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
-{% set version = "3.24.0" %}
+{% set version = "3.26.0" %}
 
 {% set name = goname.split('/')[-1] %}
 
@@ -13,7 +13,7 @@ package:
 
 source:
   url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-  sha256: 86a7136416b1c7af0628fe48fd2748d49e0cb980b3fde96ac2c09707c92d3b46
+  sha256: 5b836a8a3ebe889d06ad7b5944f766552e52591d60efa2feecf73febdfd57d5c
 
 build:
   number: 0
