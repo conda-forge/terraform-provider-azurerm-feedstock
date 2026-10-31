@@ -14,7 +14,7 @@ jobs:
         build_platform: win-64
         build_workspace_dir: D:\\bld\\
         free_disk_space: skip
-        pagefile_size: 0
+        pagefile_size: 16
         resize_partitions: false
         store_build_artifacts: false
         tools_install_dir: D:\Miniforge
@@ -23,6 +23,11 @@ jobs:
     UPLOAD_TEMP: D:\\tmp
 
   steps:
+    - script: |
+        call ".scripts\create_pagefile.bat" $(pagefile_size)
+      env:
+        CONDA_BLD_PATH: $(build_workspace_dir)
+      displayName: Create page file
     - script: |
         call ".scripts\run_win_build.bat"
       displayName: Run Windows build
